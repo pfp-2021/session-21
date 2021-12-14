@@ -78,3 +78,126 @@ for x in range(0, 160):
 
 
 # %%
+
+import math
+
+class Shape:
+
+    def __init__(self, name):
+        self.name = name
+
+    def say_hello(self):
+        print("somethign")
+
+    def calculate_area(self):
+        pass
+
+# DRY
+
+class Circle(Shape):
+
+    def __init__(self, radius):
+        super().__init__("circle")
+        super().say_hello()
+
+        self.radius = radius
+
+    def calculate_area(self):
+        return math.pi * self.radius ** 2
+
+class Square(Shape):
+
+    def __init__(self, side):
+        super().__init__("square")
+
+        self.side = side
+
+    def calculate_area(self):
+        return self.side * self.side
+
+square = Square(2)
+circle = Circle(3.2)
+
+# print(square.calculate_area())
+# print(circle.calculate_area())
+
+
+print(type(square) == Shape)
+print(isinstance(square, Shape))
+# %%
+
+
+class Invoice:
+
+    def __init__(self, tax, total_value):
+        self.tax = tax
+        self.__total_value = total_value
+
+    def get_total_value(self):
+        return self.__total_value
+
+    def calculate_final_price(self):
+        return self.__total_value + (self.tax * self.__total_value)
+
+google_analytics_invoice = Invoice(0.21, 500)
+
+# print(google_analytics_invoice.get_total_value())
+# print(google_analytics_invoice.__total_value)
+
+# print(google_analytics_invoice.calculate_final_price())
+
+# %%
+
+# matrices = [
+#     [0, 1, 0],
+#     [0, 1, 0],
+#     [0, 1, 0]
+# ]
+
+graph = {
+    "a": ["b", "c"],
+    "b": [],
+    "c": []
+}
+
+#%%
+
+class Vertex:
+    # value
+    # list of edges
+
+    def __init__(self, value, edges = []):
+        self.value = value
+        self.edges = edges
+
+
+class Edge:
+    # weight
+    # from_vertex
+    # to_vertex
+
+    def __init__(self, from_vertex, to_vertex, weight = None):
+        self.from_vertex = from_vertex
+        self.to_vertex = to_vertex
+        self.weight = weight
+
+
+class Graph:
+    # vertices
+    # directed/undirected
+
+    def __init__(self):
+        self.vertices = []
+        # self.directed = directed
+
+    def add_vertex(self, vertex):
+        self.vertices.append(vertex)
+
+class DiGraph(Graph):
+    # Directed graphs
+
+    pass
+
+class UndirectedGraph(Graph):
+    #
+    pass
