@@ -295,3 +295,8 @@ class DirectedGraph(Graph):
 
 class UndirectedGraph(Graph):
     pass
+
+#%%
+
+print("hello everybody!")
+# %%
