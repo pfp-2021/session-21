@@ -300,3 +300,112 @@ class UndirectedGraph(Graph):
 
 print("hello everybody!")
 # %%
+
+def swap(elems, current, other):
+    aux = elems[current]
+    elems[current] = elems[other]
+    elems[other] = aux
+
+
+def bubble(elems):
+    i = 0
+    while i < len(elems):
+        j = 0
+        while j < len(elems) - 1:
+             if elems[j] < elems[j + 1]:
+                 swap(elems, j, j + 1)
+
+#%%
+
+i = 1
+
+while i < 5:
+    print("hello")
+    i += 1
+
+#%%
+
+# recursion
+
+# 1,1,2,3,5,8,
+
+def fib(n):
+    if n == 0:
+        return 1
+    elif n == 1:
+        return 1
+    else:
+        return fib(n - 2) + fib(n - 1)
+
+print(fib(8))
+
+# %%
+
+
+from math import pi
+
+print(pi)
+
+# %%
+
+# a -> b -> c
+
+adjacency_matrix = [
+    [0, 1, 0],
+    [0, 0, 1],
+    [0, 0, 0]
+]
+
+#%%
+
+adjacency_list = {
+    "a": ["b"],
+    "b": ["c"],
+    "c": []
+}
+
+#%%
+
+lst = [1,2,3]
+
+for elem in lst:
+    print(elem)
+# %%
+
+# dfs vs bfs
+
+#%%
+
+class Book:
+
+    def __init__(self, title, author, current_page = 0):
+        if current_page < 0:
+            raise ValueError("don't hack the book")
+
+        self.title = title
+        self.author = author
+        self.current_page = current_page
+
+    def flip_page(self):
+        self.current_page += 1
+
+lotr = Book("LOTR", "JRR. Tolkien")
+
+print(lotr.current_page)
+lotr.flip_page()
+print(lotr.current_page)
+# %%
+
+file = open("whatever.txt")
+
+for line in file:
+    print(line)
+
+file.close()
+# %%
+
+with open("whatever.txt") as file:
+    for line in file:
+        print(line)
+
+# %%
